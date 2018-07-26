@@ -1,7 +1,3 @@
-import faker from 'faker';
-import _ from 'lodash';
-
-
 export const locationOptions = [
   {
     key: 1,
