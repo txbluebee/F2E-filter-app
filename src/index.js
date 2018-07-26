@@ -17,7 +17,7 @@ const rootEl = document.getElementById("root");
 let render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ScrollToTop>
           <App />
         </ScrollToTop>
