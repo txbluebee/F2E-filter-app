@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { withRouter } from 'react-router-dom';
 import { connect } from "react-redux";
 import { Breadcrumb } from "semantic-ui-react";
 import { MEDIUM_GRAY, DARK_GRAY, PURPLE, WHITE } from "../../../app/config";
@@ -13,8 +14,6 @@ const mapState = (state, ownProps) => {
 };
 
 const EventDetailedPage = ({ event }) => {
-  console.log(event);
-
   const { title, description, image, location, authur, category, date } = event;
 
   return (
@@ -45,7 +44,7 @@ const EventDetailedPage = ({ event }) => {
   );
 };
 
-export default connect(mapState)(EventDetailedPage);
+export default withRouter(connect(mapState)(EventDetailedPage));
 
 const EventDetailWrapper = styled.div`
   background-color: ${WHITE};

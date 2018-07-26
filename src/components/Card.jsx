@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { media } from '../app/common/util/mediaSetting';
 import { Link } from "react-router-dom";
-import { Icon } from "semantic-ui-react";
-import { WHITE, PURPLE, NOMARL_GRAY, DARK_GRAY } from "../app/config";
-import { truncate } from "../app/helpers";
+import { WHITE, PURPLE} from "../app/config";
 import CardInfo from './CardInfo';
 
 const Card = ({ event }) => {
@@ -23,7 +22,7 @@ const Card = ({ event }) => {
         <Image image={image} />
         <Content>
           <Title>{title}</Title>
-          <p>{truncate(description)}</p>
+          <Description>{description}</Description>
           <CardInfo authur={authur} category={category} location={location} date={date}/>
         </Content>
       </Wrapper>
@@ -47,6 +46,11 @@ const Wrapper = styled.div`
   cursor: pointer;
   box-shadow: 2.5px 5px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s;
+
+  ${media.tablet`
+    flex-direction: column;
+  `}
+
   &:hover {
     transform: translateY(-3px) scale(1.02);
   }
@@ -61,38 +65,16 @@ const Image = styled.div`
 const Content = styled.div`
   flex: 1 1 100%;
   padding: 15px;
-  min-height: 220px;
 `;
+
+const Description = styled.div`
+  height: 75px;
+  line-height: 24px;
+  overflow: hidden;
+`
 
 const Title = styled.h4`
   color: ${PURPLE};
   font-family: "Roboto-Bold";
   font-size: 24px;
-`;
-
-// const Description = styled.p`
-//   min-height: 40px
-// `
-
-const Row = styled.div`
-  margin-top: 10px;
-`;
-
-const AuthurText = styled.span`
-  font-weight: bold;
-`;
-
-const Category = styled.span`
-  display: inline-block;
-  font-size: 16px;
-  color: ${WHITE};
-  background-color: ${NOMARL_GRAY};
-  padding: 3px 15px;
-  border-radius: 100px;
-  margin-left: 15px;
-`;
-
-const IconTagWrapper = styled.span`
-  margin-right: 15px;
-  color: ${DARK_GRAY};
 `;

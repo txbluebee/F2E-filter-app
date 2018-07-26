@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import Card from '../../../components/Card';
+import { media } from '../../../app/common/util/mediaSetting';
 
 const EventList = ({events}) => {
   return (
@@ -16,5 +17,9 @@ export default EventList
 
 
 const EventListWrapper = styled.div`
-  margin-top: 20px
+  margin-top: 20px !important;
+  ${media.tablet`
+    width: 90%;
+    margin: 0 auto;
+  `}
 `

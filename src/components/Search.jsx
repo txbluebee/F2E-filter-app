@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { WHITE } from "../app/config";
+import { WHITE, BLACK } from "../app/config";
 import { Icon } from "semantic-ui-react";
 
-const Search = () => {
+const Search = ({white}) => {
   return (
-    <SearchWrapper>
+    <SearchWrapper white={white}>
       <Icon name="search" />
-      <Input placeholder="Explore activities"/>
+      <Input white={white} placeholder="Explore activities"/>
     </SearchWrapper>
   );
 };
@@ -18,8 +18,9 @@ const SearchWrapper = styled.div`
   display: inline-block;
   position: relative;
   font-size: 20px;
+  color: ${({white}) => white ? WHITE : BLACK};
   .icon{
-    color: ${WHITE};
+    color: inherit;
     position: absolute;
     left: 0;
     top: 0;
@@ -28,22 +29,21 @@ const SearchWrapper = styled.div`
 
 const Input = styled.input`
   background: transparent;
-  display: inline-block;
-  width: 80%;
+  display: block;
   border: none;
   font-size: 20px;
   padding-left: 40px;
   padding-bottom: 5px;
-  color: ${WHITE};
-  border-bottom: 2px solid ${WHITE};
+  color: inherit;
+  border-bottom: 2px solid ${({white}) => white ? WHITE : BLACK};
   transition: all 0.2s;
 
-  &::-webkit-input-placeholder {
-    color: rgba(white, 0.8);
-  }
+  /* &::-webkit-input-placeholder {
+    color: rgba(0,0,0, 0.3);
+  } */
 
   &:focus {
     outline: none;
-    width: 100%;
+    padding-bottom: 7px;
   }
 `;
