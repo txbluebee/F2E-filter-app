@@ -13,7 +13,7 @@ const Header = () => {
         <Grid>
           <Grid.Column mobile={16} tablet={5} computer={5}>
             <Link to="/">
-              <Logo src="/images/logo.svg" />
+              <Logo src="./images/logo.svg" />
             </Link>
           </Grid.Column>
 
