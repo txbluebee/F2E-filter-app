@@ -1,6 +1,6 @@
 # F2E Week 2 Challenge
 
-#### React Filter, 06/02/2017
+#### Filter App Practice, 07/02/2018
 
 #### By Brian Fan
 
